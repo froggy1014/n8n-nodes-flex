@@ -1,0 +1,21 @@
+{
+  "userDepartments": [
+    {
+      "employeeNumber": "string",
+      "departments": [
+        {
+          "departmentCode": "10000",
+          "departmentName": "인사팀",
+          "primary": true,
+          "headUser": false,
+          "displayOrder": 1,
+          "jobTitle": {
+            "jobTitleCode": "string",
+            "jobTitleName": "string",
+            "name": "string"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "userBusinessPlaces": [
+    {
+      "employeeNumber": "string",
+      "businessPlace": {
+        "withholdingTaxBusinessPlaceCode": "B1",
+        "businessPlaceName": "서울 본사",
+        "businessPlaceCode": "string"
+      }
+    }
+  ]
+}

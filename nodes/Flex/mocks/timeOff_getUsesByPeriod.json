@@ -1,0 +1,16 @@
+{
+  "userTimeOffUses": [
+    {
+      "employeeNumber": "A00010",
+      "uses": [
+        {
+          "formName": "연차",
+          "dateFrom": "2024-10-15",
+          "dateTo": "2024-10-15",
+          "dateTimeFrom": "2024-10-15T00:00:00Z",
+          "dateTimeTo": "2024-10-15T04:00:00Z"
+        }
+      ]
+    }
+  ]
+}

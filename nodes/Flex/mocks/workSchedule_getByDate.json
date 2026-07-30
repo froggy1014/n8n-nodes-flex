@@ -1,0 +1,34 @@
+{
+  "userWorkSchedules": [
+    {
+      "employeeNumber": "A00010",
+      "days": [
+        {
+          "date": "2025-12-09",
+          "workBlocks": [
+            {
+              "formName": "근무",
+              "blockFrom": "2025-12-09T09:00:00",
+              "blockTo": "2025-12-09T12:30:00"
+            },
+            {
+              "formName": "근무",
+              "blockFrom": "2025-12-09T13:30:00",
+              "blockTo": "2025-12-09T17:00:00"
+            }
+          ],
+          "timeOffBlocks": [
+            {
+              "formName": "연차",
+              "blockFrom": "2025-12-09T09:00:00",
+              "blockTo": "2025-12-09T10:00:00",
+              "usedMinutes": 60,
+              "usedPaidMinutes": 30,
+              "restMinutes": 0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

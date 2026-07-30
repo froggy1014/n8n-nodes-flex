@@ -1,0 +1,13 @@
+{
+  "userLeaveOfAbsences": [
+    {
+      "employeeNumber": "string",
+      "leaveOfAbsences": [
+        {
+          "beginDate": "string",
+          "endDate": "string"
+        }
+      ]
+    }
+  ]
+}

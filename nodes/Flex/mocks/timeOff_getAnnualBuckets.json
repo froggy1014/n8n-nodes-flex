@@ -1,0 +1,46 @@
+{
+  "userAnnualTimeOffBuckets": [
+    {
+      "employeeNumber": "A00010",
+      "buckets": [
+        {
+          "assignedDate": "2022-01-01",
+          "assignedMinutes": 480,
+          "usedMinutes": 240,
+          "validUsageDateRange": {
+            "from": "2022-01-01",
+            "to": "2022-12-31"
+          }
+        }
+      ],
+      "uses": [
+        {
+          "usedDate": "2022-01-01",
+          "usedMinutes": 480
+        }
+      ],
+      "adjusts": [
+        {
+          "adjustedDate": "2022-01-01",
+          "adjustedMinutes": 480
+        }
+      ],
+      "assigns": [
+        {
+          "assignedDate": "2022-01-01",
+          "assignedMinutes": 480,
+          "validUsageDateRange": {
+            "from": "string",
+            "to": "string",
+            "dateCount": 0,
+            "valid": false
+          }
+        }
+      ],
+      "remainingTimeOff": {
+        "remainingTimeOffByMinute": 480,
+        "remainingTimeOffByDay": 15
+      }
+    }
+  ]
+}

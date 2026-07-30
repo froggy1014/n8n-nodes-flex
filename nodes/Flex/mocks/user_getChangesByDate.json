@@ -1,0 +1,10 @@
+{
+  "userChanges": [
+    {
+      "type": "string",
+      "employeeNumber": "string"
+    }
+  ],
+  "nextPageKey": "string",
+  "hasNext": false
+}

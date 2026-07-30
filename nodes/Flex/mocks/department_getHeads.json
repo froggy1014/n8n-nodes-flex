@@ -1,0 +1,17 @@
+{
+  "departments": [
+    {
+      "departmentCode": "10000",
+      "directHeadUsers": [
+        {
+          "employeeNumber": "A00010"
+        }
+      ],
+      "resolvedHeadUsers": [
+        {
+          "employeeNumber": "A00010"
+        }
+      ]
+    }
+  ]
+}

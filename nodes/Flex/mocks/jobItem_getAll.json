@@ -1,0 +1,32 @@
+{
+  "jobRoles": [
+    {
+      "jobRoleCode": "string",
+      "name": "string"
+    }
+  ],
+  "jobRanks": [
+    {
+      "jobRankCode": "string",
+      "name": "string"
+    }
+  ],
+  "jobTitles": [
+    {
+      "jobTitleCode": "string",
+      "name": "string"
+    }
+  ],
+  "jobLevels": [
+    {
+      "jobLevelCode": "string",
+      "name": "string"
+    }
+  ],
+  "jobGroups": [
+    {
+      "jobGroupCode": "string",
+      "name": "string"
+    }
+  ]
+}

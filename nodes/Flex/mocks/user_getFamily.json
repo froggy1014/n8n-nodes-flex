@@ -1,0 +1,15 @@
+{
+  "userFamilyDetails": [
+    {
+      "employeeNumber": "12345",
+      "userFamilyMembers": [
+        {
+          "ssn": "090909-4433222",
+          "name": "홍길동",
+          "phoneNumber": "01022234444",
+          "relation": "05"
+        }
+      ]
+    }
+  ]
+}

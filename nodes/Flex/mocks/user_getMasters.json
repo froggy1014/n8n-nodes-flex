@@ -1,0 +1,72 @@
+{
+  "users": [
+    {
+      "employeeNumber": "A00010",
+      "name": "홍길동",
+      "nameInOffice": "John Doe",
+      "englishName": {
+        "firstName": "gildong",
+        "lastName": "hong"
+      },
+      "email": "gildong.hong@flex.team",
+      "phoneNumber": "01012345678",
+      "phoneNumbers": [
+        {
+          "type": "PERSONAL",
+          "value": "+821012345678"
+        }
+      ],
+      "ssn": "string",
+      "birthday": "string",
+      "gender": "남/여",
+      "profileImageUrl": "string",
+      "companyGroupJoinDate": "2021-01-01",
+      "companyJoinDate": "2022-01-01",
+      "companyLeaveDate": "2022-12-31",
+      "flexUsageEndDate": "2022-12-31",
+      "employmentContract": "string",
+      "homeAddress": {
+        "address": "string",
+        "addressDetail": "string",
+        "addressCountry": "string",
+        "addressState": "string",
+        "addressCity": "string",
+        "address1": "string",
+        "address2": "string",
+        "address3": "string",
+        "addressZipCode": "string"
+      },
+      "primaryDepartment": {
+        "departmentCode": "10000",
+        "parentDepartmentCode": "1000",
+        "name": "인사팀",
+        "displayOrder": 0,
+        "sortOrder": "1001, 1002,..",
+        "visible": true,
+        "beginDate": "2022-01-01",
+        "endDate": "9999-12-31"
+      },
+      "primaryJobRole": {
+        "jobRoleCode": "string"
+      },
+      "primaryJobRank": {
+        "jobRankCode": "string"
+      },
+      "primaryJobTitle": {
+        "jobTitleCode": "string"
+      },
+      "primaryJobLevel": {
+        "jobLevelCode": "string"
+      },
+      "primaryJobGroup": {
+        "jobGroupCode": "string"
+      },
+      "customProperties": [
+        {
+          "key": "string",
+          "value": "string"
+        }
+      ]
+    }
+  ]
+}

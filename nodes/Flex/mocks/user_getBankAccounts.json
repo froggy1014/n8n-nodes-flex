@@ -1,0 +1,13 @@
+{
+  "userBankAccounts": [
+    {
+      "employeeNumber": "string",
+      "bankName": "string",
+      "koreaBankCode": "string",
+      "swiftCode": "string",
+      "accountNumber": "string",
+      "accountHolder": "string",
+      "accountType": "string"
+    }
+  ]
+}

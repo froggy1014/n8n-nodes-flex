@@ -1,0 +1,14 @@
+{
+  "departments": [
+    {
+      "departmentCode": "10000",
+      "parentDepartmentCode": "1000",
+      "name": "인사팀",
+      "displayOrder": 0,
+      "sortOrder": "1001, 1002,..",
+      "visible": true,
+      "beginDate": "2022-01-01",
+      "endDate": "9999-12-31"
+    }
+  ]
+}

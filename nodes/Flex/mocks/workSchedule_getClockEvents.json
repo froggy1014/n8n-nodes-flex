@@ -1,0 +1,20 @@
+{
+  "workClockEvents": [
+    {
+      "employeeNumber": "A00010",
+      "days": [
+        {
+          "date": "2025-12-09",
+          "events": [
+            {
+              "eventType": "string",
+              "formName": "근무",
+              "realTime": "2022-01-02T09:00:00Z",
+              "targetTime": "2022-01-02T09:00:00Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "holidayGroups": [
+    {
+      "countryCode": "KR",
+      "groupName": "기본",
+      "holidays": [
+        {
+          "date": "2026-01-01",
+          "name": "신정",
+          "type": "string"
+        }
+      ]
+    }
+  ]
+}
