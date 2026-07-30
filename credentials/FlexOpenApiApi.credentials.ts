@@ -1,5 +1,6 @@
 import {
 	IAuthenticateGeneric,
+	Icon,
 	ICredentialDataDecryptedObject,
 	ICredentialTestRequest,
 	ICredentialType,
@@ -24,6 +25,8 @@ export class FlexOpenApiApi implements ICredentialType {
 	name = 'flexOpenApiApi';
 
 	displayName = 'flex Open API';
+
+	icon: Icon = 'file:flex.svg';
 
 	documentationUrl = 'https://developers.flex.team/reference/open-api-authentication-token-issuance';
 
