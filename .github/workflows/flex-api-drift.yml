@@ -1,0 +1,61 @@
+name: flex API drift watch
+
+# flex Open API 문서(llms.txt) 변경을 매일 감지.
+# 변경 시 baseline 을 갱신한 PR 을 자동 생성 → 사람이 노드 반영 여부 판단.
+# flex 통합 OpenAPI 스펙 URL 이 없으므로 코드 자동수정이 아닌 알림 트리거.
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # 매일 00:00 UTC (09:00 KST)
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  check-drift:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check flex API docs drift
+        id: drift
+        run: |
+          if bash scripts/check-drift.sh > drift-output.txt 2>&1; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+          cat drift-output.txt
+
+      - name: Open PR with updated baseline
+        if: steps.drift.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          BRANCH="flex-api-drift/$(date +%Y%m%d)"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$BRANCH"
+          git add .flex-api/llms.txt
+          git commit -m "chore: flex API 문서 변경 감지 (baseline 갱신)"
+          git push -u origin "$BRANCH" --force
+
+          {
+            echo "flex Open API 문서(\`llms.txt\`)에 변경이 감지되었습니다."
+            echo ""
+            echo "아래 diff 를 확인하고 노드(\`nodes/Flex/descriptions/\`) 반영이 필요한지 판단하세요."
+            echo "엔드포인트 추가/삭제/파라미터 변경이면 해당 resource 파일을 수정합니다."
+            echo ""
+            echo '```diff'
+            sed -n '/=== flex API/,$p' drift-output.txt
+            echo '```'
+          } > pr-body.txt
+
+          gh pr create \
+            --title "flex API 문서 변경 감지 $(date +%Y-%m-%d)" \
+            --body-file pr-body.txt \
+            --base main \
+            --head "$BRANCH" \
+            --label "flex-api-drift" || echo "PR 생성 실패 (라벨 없거나 권한 문제) — diff 는 위에 출력됨"
