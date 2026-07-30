@@ -38,7 +38,7 @@ export const departmentFields: INodeProperties[] = [
 		name: 'departmentCodes',
 		type: 'string',
 		default: '',
-		required: true,
+		required: false,
 		placeholder: 'D001,D002',
 		description: '조직 코드. 쉼표로 구분해 여러 개 입력',
 		displayOptions: { show: { resource: ['department'], operation: ['getHeads'] } },

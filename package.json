@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-flex",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "n8n community node for flex Open API (flex.team HR platform)",
   "keywords": [
     "n8n-community-node-package",
@@ -18,8 +18,9 @@
   },
   "main": "index.js",
   "scripts": {
-    "build": "tsc && npm run copy:icons",
+    "build": "tsc && npm run copy:icons && npm run copy:mocks",
     "copy:icons": "mkdir -p dist/nodes/Flex dist/credentials && cp nodes/Flex/*.svg dist/nodes/Flex/ && cp credentials/*.svg dist/credentials/",
+    "copy:mocks": "mkdir -p dist/nodes/Flex/mocks && cp nodes/Flex/mocks/*.json dist/nodes/Flex/mocks/",
     "dev": "tsc --watch",
     "lint": "tsc --noEmit"
   },
@@ -36,6 +37,7 @@
     ]
   },
   "devDependencies": {
+    "@types/node": "^20.19.43",
     "n8n-workflow": "*",
     "typescript": "^5.5.0"
   },
