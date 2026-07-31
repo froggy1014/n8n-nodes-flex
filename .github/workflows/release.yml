@@ -26,7 +26,8 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
 
       - name: Install
-        run: npm ci
+        # --ignore-scripts: isolated-vm 등 네이티브 devDep 컴파일 스킵 (빌드/린트에 불필요)
+        run: npm ci --ignore-scripts
 
       - name: Lint
         run: npm run lint
