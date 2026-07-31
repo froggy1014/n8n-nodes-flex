@@ -1,5 +1,3 @@
-import { readFileSync } from 'fs';
-import { join } from 'path';
 import {
 	IDataObject,
 	IExecuteFunctions,
@@ -7,6 +5,7 @@ import {
 	INodeType,
 	INodeTypeDescription,
 } from 'n8n-workflow';
+import { MOCKS } from './mocks';
 import {
 	departmentOperations,
 	departmentFields,
@@ -25,10 +24,9 @@ import { buildRequest } from './request';
 
 const BASE_URL = 'https://openapi.flex.team';
 
-/** mocks/<resource>_<operation>.json 로드 (flex 문서 example 로 생성됨) */
+/** mocks static map 조회 (flex 문서 example 로 생성됨 — fs 접근 없이 번들에 포함) */
 function loadMock(resource: string, operation: string): unknown {
-	const file = join(__dirname, 'mocks', `${resource}_${operation}.json`);
-	return JSON.parse(readFileSync(file, 'utf8'));
+	return MOCKS[`${resource}_${operation}`];
 }
 
 /**
