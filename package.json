@@ -9,9 +9,17 @@
     "hr"
   ],
   "license": "MIT",
-  "homepage": "https://developers.flex.team",
+  "homepage": "https://github.com/froggy1014/n8n-nodes-flex#readme",
   "author": {
-    "name": "froggy1014"
+    "name": "froggy1014",
+    "url": "https://github.com/froggy1014"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/froggy1014/n8n-nodes-flex.git"
+  },
+  "bugs": {
+    "url": "https://github.com/froggy1014/n8n-nodes-flex/issues"
   },
   "engines": {
     "node": ">=20.15"
@@ -23,10 +31,15 @@
     "copy:mocks": "mkdir -p dist/nodes/Flex/mocks && cp nodes/Flex/mocks/*.json dist/nodes/Flex/mocks/",
     "copy:codex": "cp nodes/Flex/*.json dist/nodes/Flex/ 2>/dev/null || true",
     "dev": "tsc --watch",
-    "lint": "tsc --noEmit"
+    "lint": "tsc --noEmit",
+    "prepublishOnly": "npm run lint && npm run build"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "files": [
-    "dist"
+    "dist",
+    "index.js"
   ],
   "n8n": {
     "n8nNodesApiVersion": 1,
