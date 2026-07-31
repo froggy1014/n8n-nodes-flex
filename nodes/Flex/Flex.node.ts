@@ -51,7 +51,14 @@ export class Flex implements INodeType {
 		defaults: { name: 'flex' },
 		inputs: ['main'],
 		outputs: ['main'],
-		credentials: [{ name: 'flexOpenApiApi', required: true }],
+		// Mock Data 가 꺼진 실 호출 시에만 credential 필요 (mock 모드는 credential 없이 동작)
+		credentials: [
+			{
+				name: 'flexOpenApiApi',
+				required: true,
+				displayOptions: { show: { mockData: [false] } },
+			},
+		],
 		properties: [
 			{
 				displayName: 'Resource',
