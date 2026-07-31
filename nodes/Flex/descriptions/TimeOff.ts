@@ -13,8 +13,8 @@ export const timeOffOperations: INodeProperties = {
 		{
 			name: 'Get Uses by Date',
 			value: 'getUsesByDate',
-			action: '날짜별 휴가 사용 조회',
-			description: '구성원들의 날짜별 휴가 사용 목록을 조회합니다',
+			action: 'Get time off uses by date',
+			description: 'Retrieve the list of time off uses for members on a specific date',
 			routing: {
 				request: {
 					method: 'GET',
@@ -26,8 +26,8 @@ export const timeOffOperations: INodeProperties = {
 		{
 			name: 'Get Uses by Period',
 			value: 'getUsesByPeriod',
-			action: '기간별 휴가 사용 조회',
-			description: '구성원들의 기간별 휴가 사용 목록을 최장 31일까지 조회합니다',
+			action: 'Get time off uses by period',
+			description: 'Retrieve the list of time off uses for members over a period of up to 31 days',
 			routing: {
 				request: {
 					method: 'GET',
@@ -39,8 +39,8 @@ export const timeOffOperations: INodeProperties = {
 		{
 			name: 'Get Annual Buckets',
 			value: 'getAnnualBuckets',
-			action: '연차 부여 목록 조회',
-			description: '구성원들의 연차 부여 목록을 조회합니다',
+			action: 'Get annual leave buckets',
+			description: 'Retrieve the list of annual leave grants for members',
 			routing: {
 				request: {
 					method: 'GET',

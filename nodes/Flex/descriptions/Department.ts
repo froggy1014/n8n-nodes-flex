@@ -11,15 +11,15 @@ export const departmentOperations: INodeProperties = {
 		{
 			name: 'Get Many',
 			value: 'getAll',
-			action: '전체 조직 목록 조회',
-			description: '코드가 입력된 현재 조직 목록을 조회합니다',
+			action: 'Get many departments',
+			description: 'Retrieve the current list of departments that have a department code set',
 			routing: { request: { method: 'GET', url: '/v2/departments/all' } },
 		},
 		{
 			name: 'Get Heads',
 			value: 'getHeads',
-			action: '조직장 조회',
-			description: '조직의 현재 조직장을 조회합니다',
+			action: 'Get department heads',
+			description: 'Retrieve the current heads of departments',
 			routing: {
 				request: {
 					method: 'GET',
@@ -39,7 +39,7 @@ export const departmentFields: INodeProperties[] = [
 		type: 'string',
 		default: '',
 		placeholder: 'D001,D002',
-		description: '조직 코드. 쉼표로 구분해 여러 개 입력.',
+		description: 'Department codes to look up, comma-separated for multiple values',
 		displayOptions: { show: { resource: ['department'], operation: ['getHeads'] } },
 	},
 ];

@@ -22,16 +22,16 @@ export const userOperations: INodeProperties = {
 		{
 			name: 'Get Employee Numbers',
 			value: 'getEmployeeNumbers',
-			action: '사번 목록 조회',
-			description: '사원번호 목록을 페이지 단위로 조회합니다',
+			action: 'Get employee numbers',
+			description: 'Retrieve the list of employee numbers page by page',
 			routing: { request: { method: 'GET', url: '/v2/users/employee-numbers' } },
 		},
 		{
 			name: 'Get Masters',
 			value: 'getMasters',
-			action: '구성원 마스터 조회',
+			action: 'Get member masters',
 			description:
-				'사원번호로 구성원들의 정보를 조회합니다. 인사발령 기록은 현재 정보 기준이라 입사예정자·퇴사자는 비어있을 수 있음 (해당 시점 조직·직책은 Get Departments 사용).',
+				'Retrieve member master records by employee number. Personnel appointment records reflect current data, so they may be empty for upcoming hires or former employees (use Get Departments for the department and title as of a specific point in time).',
 			routing: {
 				request: { method: 'GET', url: '/v2/user-masters', qs: { employeeNumbers: EMPLOYEE_NUMBERS_QS } },
 			},
@@ -39,8 +39,8 @@ export const userOperations: INodeProperties = {
 		{
 			name: 'Get Departments',
 			value: 'getDepartments',
-			action: '구성원 조직·직책 조회',
-			description: '사원번호로 구성원들의 조직·직책 목록을 조회합니다',
+			action: 'Get member departments and titles',
+			description: 'Retrieve the list of departments and titles for members by employee number',
 			routing: {
 				request: { method: 'GET', url: '/v2/users/departments', qs: { employeeNumbers: EMPLOYEE_NUMBERS_QS } },
 			},
@@ -48,8 +48,8 @@ export const userOperations: INodeProperties = {
 		{
 			name: 'Get Leave of Absence',
 			value: 'getLeaveOfAbsence',
-			action: '구성원 휴직 정보 조회',
-			description: '사원번호로 구성원들의 휴직 정보를 조회합니다',
+			action: 'Get member leave of absence',
+			description: 'Retrieve leave of absence information for members by employee number',
 			routing: {
 				request: { method: 'GET', url: '/v2/users/leave-of-absence', qs: { employeeNumbers: EMPLOYEE_NUMBERS_QS } },
 			},
@@ -57,15 +57,15 @@ export const userOperations: INodeProperties = {
 		{
 			name: 'Get Changes by Date',
 			value: 'getChangesByDate',
-			action: '날짜별 변동 구성원 조회',
-			description: '변동된 구성원 목록을 조회합니다',
+			action: 'Get changed members by date',
+			description: 'Retrieve the list of members whose information changed',
 			routing: { request: { method: 'GET', url: '=/v2/users/changes/dates/{{$parameter.date}}' } },
 		},
 		{
 			name: 'Get Family Details',
 			value: 'getFamily',
-			action: '구성원 가족정보 조회',
-			description: '사원번호로 구성원들의 가족정보를 조회합니다',
+			action: 'Get member family details',
+			description: 'Retrieve family details for members by employee number',
 			routing: {
 				request: { method: 'GET', url: '/v2/users/family-details', qs: { employeeNumbers: EMPLOYEE_NUMBERS_QS } },
 			},
@@ -73,8 +73,8 @@ export const userOperations: INodeProperties = {
 		{
 			name: 'Get Cost Centers',
 			value: 'getCostCenters',
-			action: '구성원 코스트센터 조회',
-			description: '사원번호로 구성원들의 코스트센터 정보를 조회합니다',
+			action: 'Get member cost centers',
+			description: 'Retrieve cost center information for members by employee number',
 			routing: {
 				request: { method: 'GET', url: '/v2/users/cost-centers', qs: { employeeNumbers: EMPLOYEE_NUMBERS_QS } },
 			},
@@ -82,8 +82,8 @@ export const userOperations: INodeProperties = {
 		{
 			name: 'Get Bank Accounts',
 			value: 'getBankAccounts',
-			action: '구성원 은행계좌 조회',
-			description: '사원번호로 구성원들의 은행계좌 정보를 조회합니다',
+			action: 'Get member bank accounts',
+			description: 'Retrieve bank account information for members by employee number',
 			routing: {
 				request: { method: 'GET', url: '/v2/users/bank-accounts', qs: { employeeNumbers: EMPLOYEE_NUMBERS_QS } },
 			},
@@ -91,8 +91,8 @@ export const userOperations: INodeProperties = {
 		{
 			name: 'Get Business Places',
 			value: 'getBusinessPlaces',
-			action: '구성원 사업장 조회',
-			description: '사원번호로 구성원들의 사업장 정보를 조회합니다',
+			action: 'Get member business places',
+			description: 'Retrieve business place information for members by employee number',
 			routing: {
 				request: { method: 'GET', url: '/v2/users/business-places', qs: { employeeNumbers: EMPLOYEE_NUMBERS_QS } },
 			},
@@ -168,7 +168,8 @@ export const userFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				placeholder: '2026-07-30T09:00:00',
-				description: '특정 시점 기준 조직·직책 조회 (입사예정일/퇴사일 조회 등)',
+				description:
+					'Look up departments and titles as of a specific point in time (e.g. a planned hire date or a leave date)',
 				routing: { send: { type: 'query', property: 'searchDateTime' } },
 			},
 		],

@@ -21,7 +21,8 @@ export function employeeNumbersField(resource: string, operations: string[]): IN
 		type: 'string',
 		default: '',
 		placeholder: '1001,1002,1003',
-		description: '조회할 사원번호. 쉼표로 구분해 여러 개 입력. 코드(사번) 미설정 구성원은 응답에 나오지 않음',
+		description:
+			'Employee numbers to look up, comma-separated for multiple values. Members without an employee number set are not included in the response.',
 		displayOptions: { show: { resource: [resource], operation: operations } },
 	};
 }
@@ -33,7 +34,7 @@ export function singleDateField(resource: string, operations: string[]): INodePr
 		type: 'string',
 		default: '',
 		placeholder: '2026-07-30',
-		description: '조회 날짜 (YYYY-MM-DD)',
+		description: 'Date to look up (YYYY-MM-DD)',
 		displayOptions: { show: { resource: [resource], operation: operations } },
 	};
 }
@@ -46,7 +47,7 @@ export function periodDateFields(resource: string, operations: string[]): INodeP
 			type: 'string',
 			default: '',
 			placeholder: '2026-07-01',
-			description: '조회 시작일 (YYYY-MM-DD). endDate 와 최장 31일 간격.',
+			description: 'Start date of the period (YYYY-MM-DD). Can span at most 31 days up to the end date.',
 			displayOptions: { show: { resource: [resource], operation: operations } },
 		},
 		{
@@ -55,7 +56,7 @@ export function periodDateFields(resource: string, operations: string[]): INodeP
 			type: 'string',
 			default: '',
 			placeholder: '2026-07-31',
-			description: '조회 종료일 (YYYY-MM-DD)',
+			description: 'End date of the period (YYYY-MM-DD)',
 			displayOptions: { show: { resource: [resource], operation: operations } },
 		},
 	];

@@ -37,7 +37,7 @@ export class FlexOpenApiApi implements ICredentialType {
 			type: 'string',
 			default: '',
 			required: true,
-			description: 'flex Open API 설정에서 Client Credential 방식으로 발급한 Client ID',
+			description: 'Client ID issued with the Client Credential method in the flex Open API settings',
 		},
 		{
 			displayName: 'Client Secret',
@@ -46,7 +46,7 @@ export class FlexOpenApiApi implements ICredentialType {
 			typeOptions: { password: true },
 			default: '',
 			required: true,
-			description: '발급 직후 한 번만 표시되는 Client Secret',
+			description: 'Client Secret, shown only once right after it is issued',
 		},
 	];
 

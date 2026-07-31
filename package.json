@@ -1,66 +1,66 @@
 {
-  "name": "n8n-nodes-flex",
-  "version": "0.3.0",
-  "description": "n8n community node for flex Open API (flex.team HR platform)",
-  "keywords": [
-    "n8n-community-node-package",
-    "flex",
-    "flex.team",
-    "hr"
-  ],
-  "license": "MIT",
-  "homepage": "https://github.com/froggy1014/n8n-nodes-flex#readme",
-  "author": {
-    "name": "froggy1014",
-    "url": "https://github.com/froggy1014"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/froggy1014/n8n-nodes-flex.git"
-  },
-  "bugs": {
-    "url": "https://github.com/froggy1014/n8n-nodes-flex/issues"
-  },
-  "engines": {
-    "node": ">=20.15"
-  },
-  "main": "index.js",
-  "scripts": {
-    "build": "tsc && npm run copy:icons && npm run copy:mocks && npm run copy:codex",
-    "copy:icons": "mkdir -p dist/nodes/Flex dist/credentials && cp nodes/Flex/*.svg dist/nodes/Flex/ && cp credentials/*.svg dist/credentials/",
-    "copy:mocks": "mkdir -p dist/nodes/Flex/mocks && cp nodes/Flex/mocks/*.json dist/nodes/Flex/mocks/",
-    "copy:codex": "cp nodes/Flex/*.json dist/nodes/Flex/ 2>/dev/null || true",
-    "dev": "tsc --watch",
-    "format": "prettier nodes credentials --write",
-    "lint": "eslint nodes credentials package.json",
-    "lintfix": "eslint nodes credentials package.json --fix",
-    "prepublishOnly": "npm run build && npm run lint -c .eslintrc.prepublish.js nodes credentials package.json"
-  },
-  "publishConfig": {
-    "access": "public"
-  },
-  "files": [
-    "dist"
-  ],
-  "n8n": {
-    "n8nNodesApiVersion": 1,
-    "credentials": [
-      "dist/credentials/FlexOpenApiApi.credentials.js"
-    ],
-    "nodes": [
-      "dist/nodes/Flex/Flex.node.js"
-    ]
-  },
-  "devDependencies": {
-    "@types/node": "^20.19.43",
-    "@typescript-eslint/parser": "^7.18.0",
-    "eslint": "^8.57.1",
-    "eslint-plugin-n8n-nodes-base": "^1.16.7",
-    "n8n-workflow": "*",
-    "prettier": "^3.9.6",
-    "typescript": "^5.5.0"
-  },
-  "peerDependencies": {
-    "n8n-workflow": "*"
-  }
+	"name": "n8n-nodes-flex",
+	"version": "0.4.0",
+	"description": "Unofficial n8n community node for the flex Open API (flex.team HR platform). Not affiliated with Flex Inc.",
+	"keywords": [
+		"n8n-community-node-package",
+		"flex",
+		"flex.team",
+		"hr"
+	],
+	"license": "MIT",
+	"homepage": "https://github.com/froggy1014/n8n-nodes-flex#readme",
+	"author": {
+		"name": "froggy1014",
+		"url": "https://github.com/froggy1014"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/froggy1014/n8n-nodes-flex.git"
+	},
+	"bugs": {
+		"url": "https://github.com/froggy1014/n8n-nodes-flex/issues"
+	},
+	"engines": {
+		"node": ">=20.15"
+	},
+	"main": "index.js",
+	"scripts": {
+		"build": "tsc && npm run copy:icons && npm run copy:mocks && npm run copy:codex",
+		"copy:icons": "mkdir -p dist/nodes/Flex dist/credentials && cp nodes/Flex/*.svg dist/nodes/Flex/ && cp credentials/*.svg dist/credentials/",
+		"copy:mocks": "mkdir -p dist/nodes/Flex/mocks && cp nodes/Flex/mocks/*.json dist/nodes/Flex/mocks/",
+		"copy:codex": "cp nodes/Flex/*.json dist/nodes/Flex/ 2>/dev/null || true",
+		"dev": "tsc --watch",
+		"format": "prettier nodes credentials --write",
+		"lint": "eslint nodes credentials package.json",
+		"lintfix": "eslint nodes credentials package.json --fix",
+		"prepublishOnly": "npm run build && npm run lint -c .eslintrc.prepublish.js nodes credentials package.json"
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"files": [
+		"dist"
+	],
+	"n8n": {
+		"n8nNodesApiVersion": 1,
+		"credentials": [
+			"dist/credentials/FlexOpenApiApi.credentials.js"
+		],
+		"nodes": [
+			"dist/nodes/Flex/Flex.node.js"
+		]
+	},
+	"devDependencies": {
+		"@types/node": "^20.19.43",
+		"@typescript-eslint/parser": "^7.18.0",
+		"eslint": "^8.57.1",
+		"eslint-plugin-n8n-nodes-base": "^1.16.7",
+		"n8n-workflow": "*",
+		"prettier": "^3.9.6",
+		"typescript": "^5.5.0"
+	},
+	"peerDependencies": {
+		"n8n-workflow": "*"
+	}
 }

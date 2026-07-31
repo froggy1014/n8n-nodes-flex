@@ -15,8 +15,8 @@ export const workScheduleOperations: INodeProperties = {
 		{
 			name: 'Get by Date',
 			value: 'getByDate',
-			action: '날짜별 근무 스케줄 조회',
-			description: '구성원들의 날짜별 근무 스케줄을 조회합니다',
+			action: 'Get work schedules by date',
+			description: 'Retrieve work schedules for members on a specific date',
 			routing: {
 				request: {
 					method: 'GET',
@@ -28,8 +28,8 @@ export const workScheduleOperations: INodeProperties = {
 		{
 			name: 'Get by Period',
 			value: 'getByPeriod',
-			action: '기간별 근무 스케줄 조회',
-			description: '구성원들의 기간별 근무 스케줄을 최장 31일까지 조회합니다',
+			action: 'Get work schedules by period',
+			description: 'Retrieve work schedules for members over a period of up to 31 days',
 			routing: {
 				request: {
 					method: 'GET',
@@ -41,8 +41,8 @@ export const workScheduleOperations: INodeProperties = {
 		{
 			name: 'Get Clock Events',
 			value: 'getClockEvents',
-			action: '기간별 타각 이벤트 조회',
-			description: '구성원들의 기간별 타각 이벤트를 최장 31일까지 조회합니다',
+			action: 'Get clock events by period',
+			description: 'Retrieve clock-in/out events for members over a period of up to 31 days',
 			routing: {
 				request: {
 					method: 'GET',
@@ -54,8 +54,9 @@ export const workScheduleOperations: INodeProperties = {
 		{
 			name: 'Get With Clocks by Date',
 			value: 'getWithClocksByDate',
-			action: '날짜별 근무 스케줄+타각 조회',
-			description: '진행 중인 근무·휴게를 제외한 날짜별 근무 스케줄과 타각을 조회합니다',
+			action: 'Get work schedules with clocks by date',
+			description:
+				'Retrieve work schedules and clock records for a specific date, excluding work and breaks still in progress',
 			routing: {
 				request: {
 					method: 'GET',
@@ -67,8 +68,8 @@ export const workScheduleOperations: INodeProperties = {
 		{
 			name: 'Get With Clocks by Period',
 			value: 'getWithClocksByPeriod',
-			action: '기간별 근무 스케줄+타각 조회',
-			description: '구성원들의 기간별 근무 스케줄과 타각을 최장 31일까지 조회합니다',
+			action: 'Get work schedules with clocks by period',
+			description: 'Retrieve work schedules and clock records for members over a period of up to 31 days',
 			routing: {
 				request: {
 					method: 'GET',
