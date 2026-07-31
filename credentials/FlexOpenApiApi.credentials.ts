@@ -26,7 +26,7 @@ export class FlexOpenApiApi implements ICredentialType {
 
 	displayName = 'Flex Open API';
 
-	icon: Icon = 'file:flex.svg';
+	icon: Icon = { light: 'file:flex.svg', dark: 'file:flex.dark.svg' };
 
 	documentationUrl = 'https://developers.flex.team/reference/open-api-authentication-token-issuance';
 

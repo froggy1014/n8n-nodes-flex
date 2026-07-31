@@ -4,6 +4,7 @@ import {
 	INodeExecutionData,
 	INodeType,
 	INodeTypeDescription,
+	NodeConnectionTypes,
 } from 'n8n-workflow';
 import { MOCKS } from './mocks';
 import {
@@ -41,15 +42,16 @@ export class Flex implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'flex',
 		name: 'flex',
-		icon: 'file:flex.svg',
+		icon: { light: 'file:flex.svg', dark: 'file:flex.dark.svg' },
 		group: ['transform'],
 		version: 1,
+		usableAsTool: true,
 		subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',
 		description:
 			'Retrieve department, member, attendance, time off, and holiday data from the flex.team HR platform (flex Open API, read-only). Turn on Mock Data to get sample responses from the API docs without a credential.',
 		defaults: { name: 'flex' },
-		inputs: ['main'],
-		outputs: ['main'],
+		inputs: [NodeConnectionTypes.Main],
+		outputs: [NodeConnectionTypes.Main],
 		// Mock Data 가 꺼진 실 호출 시에만 credential 필요 (mock 모드는 credential 없이 동작)
 		credentials: [
 			{
