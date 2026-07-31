@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-flex",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "n8n community node for flex Open API (flex.team HR platform)",
   "keywords": [
     "n8n-community-node-package",
