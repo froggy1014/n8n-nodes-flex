@@ -1,5 +1,7 @@
 # n8n-nodes-flex
 
+> English | [한국어](README.ko.md)
+
 An **unofficial** n8n community node for the [flex Open API](https://developers.flex.team) — flex.team, a Korean HR platform.
 
 > **Disclaimer**: This is an unofficial, community-maintained package. It is **not affiliated with, endorsed by, or sponsored by Flex Inc. (플렉스 주식회사 / flex.team)**. "flex" is used solely to identify the third-party service this node integrates with. The flex Open API is a paid add-on; each workspace admin issues their own API credentials.
