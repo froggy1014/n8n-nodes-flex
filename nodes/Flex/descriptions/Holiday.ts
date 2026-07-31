@@ -8,7 +8,7 @@ export const holidayOperations: INodeProperties = {
 	displayOptions: { show: { resource: ['holiday'] } },
 	options: [
 		{
-			name: 'Get All',
+			name: 'Get Many',
 			value: 'getAll',
 			action: '휴일 목록 조회',
 			description: '회사의 휴일 그룹별 휴일 목록을 조회합니다 (법정공휴일+회사 자체 휴일)',
@@ -33,7 +33,6 @@ export const holidayFields: INodeProperties[] = [
 		name: 'from',
 		type: 'string',
 		default: '',
-		required: false,
 		placeholder: '2026-01-01',
 		description: '조회 시작일 (YYYY-MM-DD)',
 		displayOptions: { show: { resource: ['holiday'], operation: ['getAll'] } },
@@ -43,7 +42,6 @@ export const holidayFields: INodeProperties[] = [
 		name: 'to',
 		type: 'string',
 		default: '',
-		required: false,
 		placeholder: '2026-12-31',
 		description: '조회 종료일 (YYYY-MM-DD)',
 		displayOptions: { show: { resource: ['holiday'], operation: ['getAll'] } },

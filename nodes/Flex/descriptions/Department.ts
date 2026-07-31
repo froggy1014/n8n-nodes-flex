@@ -9,7 +9,7 @@ export const departmentOperations: INodeProperties = {
 	displayOptions: { show: { resource: ['department'] } },
 	options: [
 		{
-			name: 'Get All',
+			name: 'Get Many',
 			value: 'getAll',
 			action: '전체 조직 목록 조회',
 			description: '코드가 입력된 현재 조직 목록을 조회합니다',
@@ -38,9 +38,8 @@ export const departmentFields: INodeProperties[] = [
 		name: 'departmentCodes',
 		type: 'string',
 		default: '',
-		required: false,
 		placeholder: 'D001,D002',
-		description: '조직 코드. 쉼표로 구분해 여러 개 입력',
+		description: '조직 코드. 쉼표로 구분해 여러 개 입력.',
 		displayOptions: { show: { resource: ['department'], operation: ['getHeads'] } },
 	},
 ];

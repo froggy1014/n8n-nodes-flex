@@ -31,15 +31,16 @@
     "copy:mocks": "mkdir -p dist/nodes/Flex/mocks && cp nodes/Flex/mocks/*.json dist/nodes/Flex/mocks/",
     "copy:codex": "cp nodes/Flex/*.json dist/nodes/Flex/ 2>/dev/null || true",
     "dev": "tsc --watch",
-    "lint": "tsc --noEmit",
-    "prepublishOnly": "npm run lint && npm run build"
+    "format": "prettier nodes credentials --write",
+    "lint": "eslint nodes credentials package.json",
+    "lintfix": "eslint nodes credentials package.json --fix",
+    "prepublishOnly": "npm run build && npm run lint -c .eslintrc.prepublish.js nodes credentials package.json"
   },
   "publishConfig": {
     "access": "public"
   },
   "files": [
-    "dist",
-    "index.js"
+    "dist"
   ],
   "n8n": {
     "n8nNodesApiVersion": 1,
@@ -52,7 +53,11 @@
   },
   "devDependencies": {
     "@types/node": "^20.19.43",
+    "@typescript-eslint/parser": "^7.18.0",
+    "eslint": "^8.57.1",
+    "eslint-plugin-n8n-nodes-base": "^1.16.7",
     "n8n-workflow": "*",
+    "prettier": "^3.9.6",
     "typescript": "^5.5.0"
   },
   "peerDependencies": {

@@ -8,7 +8,7 @@ export const jobItemOperations: INodeProperties = {
 	displayOptions: { show: { resource: ['jobItem'] } },
 	options: [
 		{
-			name: 'Get All',
+			name: 'Get Many',
 			value: 'getAll',
 			action: '직무·직위·직책·직급·직군 목록 조회',
 			description: '코드가 입력된 업무 코드 목록을 조회합니다',

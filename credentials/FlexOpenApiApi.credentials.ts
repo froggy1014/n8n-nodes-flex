@@ -24,7 +24,7 @@ const TOKEN_URL =
 export class FlexOpenApiApi implements ICredentialType {
 	name = 'flexOpenApiApi';
 
-	displayName = 'flex Open API';
+	displayName = 'Flex Open API';
 
 	icon: Icon = 'file:flex.svg';
 

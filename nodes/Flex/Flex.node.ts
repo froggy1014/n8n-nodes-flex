@@ -68,11 +68,11 @@ export class Flex implements INodeType {
 				noDataExpression: true,
 				options: [
 					{ name: 'Department', value: 'department' },
+					{ name: 'Holiday', value: 'holiday' },
 					{ name: 'Job Item', value: 'jobItem' },
+					{ name: 'Time Off', value: 'timeOff' },
 					{ name: 'User', value: 'user' },
 					{ name: 'Work Schedule', value: 'workSchedule' },
-					{ name: 'Time Off', value: 'timeOff' },
-					{ name: 'Holiday', value: 'holiday' },
 				],
 				default: 'department',
 			},
