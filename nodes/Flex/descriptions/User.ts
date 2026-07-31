@@ -30,7 +30,8 @@ export const userOperations: INodeProperties = {
 			name: 'Get Masters',
 			value: 'getMasters',
 			action: '구성원 마스터 조회',
-			description: '사원번호로 구성원들의 정보를 조회합니다',
+			description:
+				'사원번호로 구성원들의 정보를 조회합니다. 인사발령 기록은 현재 정보 기준이라 입사예정자·퇴사자는 비어있을 수 있음 (해당 시점 조직·직책은 Get Departments 사용).',
 			routing: {
 				request: { method: 'GET', url: '/v2/user-masters', qs: { employeeNumbers: EMPLOYEE_NUMBERS_QS } },
 			},

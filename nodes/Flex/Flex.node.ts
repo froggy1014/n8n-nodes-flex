@@ -47,7 +47,8 @@ export class Flex implements INodeType {
 		group: ['transform'],
 		version: 1,
 		subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',
-		description: 'flex Open API (flex.team HR 플랫폼) 조회',
+		description:
+			'flex.team HR 플랫폼의 조직·구성원·근태·휴가·휴일 데이터를 조회합니다 (flex Open API, read-only). Mock Data 토글로 크레덴셜 없이 문서 예시 응답도 받을 수 있습니다.',
 		defaults: { name: 'flex' },
 		inputs: ['main'],
 		outputs: ['main'],

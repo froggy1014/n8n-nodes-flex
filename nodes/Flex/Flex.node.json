@@ -1,0 +1,32 @@
+{
+	"node": "n8n-nodes-flex.flex",
+	"nodeVersion": "1.0",
+	"codexVersion": "1.0",
+	"categories": ["HR", "Productivity"],
+	"resources": {
+		"credentialDocumentation": [
+			{
+				"url": "https://developers.flex.team/reference/open-api-authentication-token-issuance"
+			}
+		],
+		"primaryDocumentation": [
+			{
+				"url": "https://developers.flex.team"
+			}
+		]
+	},
+	"alias": [
+		"flex",
+		"flex.team",
+		"HR",
+		"인사",
+		"근태",
+		"휴가",
+		"조직",
+		"부서",
+		"구성원",
+		"사번",
+		"근무",
+		"휴일"
+	]
+}
