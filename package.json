@@ -1,6 +1,6 @@
 {
 	"name": "n8n-nodes-flex",
-	"version": "0.4.3",
+	"version": "0.4.4",
 	"description": "Unofficial n8n community node for the flex Open API (flex.team HR platform). Not affiliated with Flex Inc.",
 	"keywords": [
 		"n8n-community-node-package",
@@ -12,6 +12,7 @@
 	"homepage": "https://github.com/froggy1014/n8n-nodes-flex#readme",
 	"author": {
 		"name": "froggy1014",
+		"email": "me@jeongmin.dev",
 		"url": "https://github.com/froggy1014"
 	},
 	"repository": {
