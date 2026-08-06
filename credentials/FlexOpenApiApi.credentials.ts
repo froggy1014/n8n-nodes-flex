@@ -48,6 +48,16 @@ export class FlexOpenApiApi implements ICredentialType {
 			required: true,
 			description: 'Client Secret, shown only once right after it is issued',
 		},
+		// n8n 은 hidden + expirable 속성이 존재할 때만 preAuthentication 을 호출한다.
+		// 이 속성이 없으면 토큰 발급 없이 빈 Bearer 헤더로 요청이 나가 401 이 된다.
+		// preAuthentication 이 반환한 sessionToken 이 여기 저장되고, 만료(401) 시 재발급된다.
+		{
+			displayName: 'Session Token',
+			name: 'sessionToken',
+			type: 'hidden',
+			typeOptions: { expirable: true },
+			default: '',
+		},
 	];
 
 	/**

@@ -105,6 +105,18 @@ export const userFields: INodeProperties[] = [
 	employeeNumbersField('user', EMPLOYEE_NUMBER_OPS),
 	singleDateField('user', ['getChangesByDate']),
 
+	// 페이지네이션 지원 오퍼레이션: hasNext/nextPageKey 를 따라 전체 페이지 자동 조회
+	{
+		displayName: 'Return All',
+		name: 'returnAll',
+		type: 'boolean',
+		default: false,
+		description: 'Whether to return all results or only up to a given limit',
+		displayOptions: {
+			show: { resource: ['user'], operation: ['getEmployeeNumbers', 'getChangesByDate'] },
+		},
+	},
+
 	// 선택 파라미터: 값을 추가했을 때만 query 로 전송됨 (collection)
 	{
 		displayName: 'Additional Fields',
@@ -118,7 +130,9 @@ export const userFields: INodeProperties[] = [
 				displayName: 'Page Size',
 				name: 'pageSize',
 				type: 'number',
-				default: 100,
+				default: 20,
+				description: 'Number of results per page (flex API allows at most 20)',
+				typeOptions: { minValue: 1, maxValue: 20 },
 				routing: { send: { type: 'query', property: 'pageSize' } },
 			},
 			{
@@ -126,6 +140,7 @@ export const userFields: INodeProperties[] = [
 				name: 'nextPageKey',
 				type: 'string',
 				default: '',
+				description: 'Key from the previous response to fetch the next page manually (ignored when Return All is on)',
 				routing: { send: { type: 'query', property: 'nextPageKey' } },
 			},
 		],
@@ -142,7 +157,9 @@ export const userFields: INodeProperties[] = [
 				displayName: 'Page Size',
 				name: 'pageSize',
 				type: 'number',
-				default: 100,
+				default: 20,
+				description: 'Number of results per page (flex API allows at most 20)',
+				typeOptions: { minValue: 1, maxValue: 20 },
 				routing: { send: { type: 'query', property: 'pageSize' } },
 			},
 			{
@@ -150,6 +167,7 @@ export const userFields: INodeProperties[] = [
 				name: 'pageKey',
 				type: 'string',
 				default: '',
+				description: 'Key from the previous response to fetch the next page manually (ignored when Return All is on)',
 				routing: { send: { type: 'query', property: 'pageKey' } },
 			},
 		],

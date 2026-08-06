@@ -22,7 +22,7 @@ export function employeeNumbersField(resource: string, operations: string[]): IN
 		default: '',
 		placeholder: '1001,1002,1003',
 		description:
-			'Employee numbers to look up, comma-separated for multiple values. Members without an employee number set are not included in the response.',
+			'Employee numbers to look up, comma-separated for multiple values. More than 20 values are split into multiple API calls automatically (flex allows at most 20 per request). Members without an employee number set are not included in the response.',
 		displayOptions: { show: { resource: [resource], operation: operations } },
 	};
 }

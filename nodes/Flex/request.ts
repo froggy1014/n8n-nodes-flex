@@ -4,6 +4,13 @@ import { IDataObject, IExecuteFunctions } from 'n8n-workflow';
 export interface FlexRequestSpec {
 	url: string;
 	qs?: IDataObject;
+	/**
+	 * 배열 query param 이름. flex 는 배열 param 당 최대 20개(maxItems)만 허용하므로
+	 * 초과 시 execute() 가 이 param 기준으로 분할 호출 후 응답을 병합한다.
+	 */
+	chunkParam?: string;
+	/** 페이지네이션 지원 endpoint 의 요청 page key param 이름 (응답의 nextPageKey 를 실어 보냄) */
+	paginationParam?: string;
 }
 
 const csv = (s: string): string[] =>
@@ -25,62 +32,58 @@ export function buildRequest(ctx: IExecuteFunctions, i: number): FlexRequestSpec
 	const emp = (): string[] => csv(str('employeeNumbers'));
 	const add = (): IDataObject => ctx.getNodeParameter('additionalFields', i, {}) as IDataObject;
 
+	/** employeeNumbers 배열을 쓰는 조회 공통 스펙 */
+	const byEmp = (url: string, extraQs: IDataObject = {}): FlexRequestSpec => ({
+		url,
+		qs: { employeeNumbers: emp(), ...extraQs },
+		chunkParam: 'employeeNumbers',
+	});
+
 	switch (key) {
 		case 'department.getAll':
 			return { url: '/v2/departments/all' };
 		case 'department.getHeads':
-			return { url: '/v2/departments/heads', qs: { departmentCodes: csv(str('departmentCodes')) } };
+			return {
+				url: '/v2/departments/heads',
+				qs: { departmentCodes: csv(str('departmentCodes')) },
+				chunkParam: 'departmentCodes',
+			};
 		case 'jobItem.getAll':
 			return { url: '/v2/job-items/all' };
 		case 'user.getEmployeeNumbers':
-			return { url: '/v2/users/employee-numbers', qs: add() };
+			return { url: '/v2/users/employee-numbers', qs: add(), paginationParam: 'nextPageKey' };
 		case 'user.getMasters':
-			return { url: '/v2/user-masters', qs: { employeeNumbers: emp() } };
+			return byEmp('/v2/user-masters');
 		case 'user.getDepartments':
-			return { url: '/v2/users/departments', qs: { employeeNumbers: emp(), ...add() } };
+			return byEmp('/v2/users/departments', add());
 		case 'user.getLeaveOfAbsence':
-			return { url: '/v2/users/leave-of-absence', qs: { employeeNumbers: emp() } };
+			return byEmp('/v2/users/leave-of-absence');
 		case 'user.getChangesByDate':
-			return { url: `/v2/users/changes/dates/${str('date')}`, qs: add() };
+			return { url: `/v2/users/changes/dates/${str('date')}`, qs: add(), paginationParam: 'pageKey' };
 		case 'user.getFamily':
-			return { url: '/v2/users/family-details', qs: { employeeNumbers: emp() } };
+			return byEmp('/v2/users/family-details');
 		case 'user.getCostCenters':
-			return { url: '/v2/users/cost-centers', qs: { employeeNumbers: emp() } };
+			return byEmp('/v2/users/cost-centers');
 		case 'user.getBankAccounts':
-			return { url: '/v2/users/bank-accounts', qs: { employeeNumbers: emp() } };
+			return byEmp('/v2/users/bank-accounts');
 		case 'user.getBusinessPlaces':
-			return { url: '/v2/users/business-places', qs: { employeeNumbers: emp() } };
+			return byEmp('/v2/users/business-places');
 		case 'workSchedule.getByDate':
-			return { url: `/v2/users/work-schedules/dates/${str('date')}`, qs: { employeeNumbers: emp() } };
+			return byEmp(`/v2/users/work-schedules/dates/${str('date')}`);
 		case 'workSchedule.getByPeriod':
-			return {
-				url: `/v2/users/work-schedules/dates/${str('beginDate')}/${str('endDate')}`,
-				qs: { employeeNumbers: emp() },
-			};
+			return byEmp(`/v2/users/work-schedules/dates/${str('beginDate')}/${str('endDate')}`);
 		case 'workSchedule.getClockEvents':
-			return {
-				url: `/v2/users/work-clock-events/dates/${str('beginDate')}/${str('endDate')}`,
-				qs: { employeeNumbers: emp() },
-			};
+			return byEmp(`/v2/users/work-clock-events/dates/${str('beginDate')}/${str('endDate')}`);
 		case 'workSchedule.getWithClocksByDate':
-			return {
-				url: `/v2/users/work-schedules-with-work-clock/dates/${str('date')}`,
-				qs: { employeeNumbers: emp() },
-			};
+			return byEmp(`/v2/users/work-schedules-with-work-clock/dates/${str('date')}`);
 		case 'workSchedule.getWithClocksByPeriod':
-			return {
-				url: `/v2/users/work-schedules-with-work-clock/dates/${str('beginDate')}/${str('endDate')}`,
-				qs: { employeeNumbers: emp() },
-			};
+			return byEmp(`/v2/users/work-schedules-with-work-clock/dates/${str('beginDate')}/${str('endDate')}`);
 		case 'timeOff.getUsesByDate':
-			return { url: `/v2/users/time-off-uses/dates/${str('date')}`, qs: { employeeNumbers: emp() } };
+			return byEmp(`/v2/users/time-off-uses/dates/${str('date')}`);
 		case 'timeOff.getUsesByPeriod':
-			return {
-				url: `/v2/users/time-off-uses/dates/${str('beginDate')}/${str('endDate')}`,
-				qs: { employeeNumbers: emp() },
-			};
+			return byEmp(`/v2/users/time-off-uses/dates/${str('beginDate')}/${str('endDate')}`);
 		case 'timeOff.getAnnualBuckets':
-			return { url: '/v2/users/time-off-buckets/annual', qs: { employeeNumbers: emp() } };
+			return byEmp('/v2/users/time-off-buckets/annual');
 		case 'holiday.getAll':
 			return { url: '/v2/holidays', qs: { from: str('from'), to: str('to') } };
 		default:
