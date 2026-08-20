@@ -2,6 +2,8 @@
 
 > 플렉스에서는 사용자들께서 단순히 HR 서비스를 사용하시는 수준을 넘어 업무 전반에 걸쳐 연결된 사용 경험을 하고 업무 효율성을 높일 수 있도록 연동 서비스를 제공하고 있습니다.
 
+Append .md to any documentation page URL to get its markdown version.
+
 ## API Reference
 - [토큰 발급 방법](https://developers.flex.team/reference/open-api-authentication-token-issuance.md)
 - [빠르게 체험해보기](https://developers.flex.team/reference/open-api-quick-start.md)
