@@ -2,6 +2,8 @@
 
 > 플렉스에서는 사용자들께서 단순히 HR 서비스를 사용하시는 수준을 넘어 업무 전반에 걸쳐 연결된 사용 경험을 하고 업무 효율성을 높일 수 있도록 연동 서비스를 제공하고 있습니다.
 
+Append .md to any documentation page URL to get its markdown version.
+
 ## API Reference
 - [토큰 발급 방법](https://developers.flex.team/reference/open-api-authentication-token-issuance.md)
 - [빠르게 체험해보기](https://developers.flex.team/reference/open-api-quick-start.md)
@@ -27,6 +29,8 @@
 - [사번으로 구성원 은행계좌 정보 조회 (Get user bank accounts by employee numbers)](https://developers.flex.team/reference/getuserbankaccountsbyemployeenumbers.md): 사원번호로 구성원들의 은행계좌 정보를 조회합니다
 - [사번으로 구성원 사업장 조회 (Get user business places by employee numbers)](https://developers.flex.team/reference/getuserbusinessplacesbyemployeenumbers.md): 사원번호로 구성원들의 사업장 정보를 조회합니다
 - [공휴일/휴일 다건 조회 (Get holidays)](https://developers.flex.team/reference/getholidays.md): 회사의 휴일 그룹별 휴일 목록을 조회합니다. 법정공휴일(대체공휴일 포함)과 회사 자체 휴일이 함께 반환됩니다.
+- [급여전표 목록 조회(Get Payroll Posting List)](https://developers.flex.team/reference/getpayrollposting.md): 급여전표(급여/퇴직금)를 조회합니다.
+- [급여전표 조회(Detail View of Payroll Posting)](https://developers.flex.team/reference/getpayrollpostingbyid.md): 급여전표의 아이디로 상세내용을 조회합니다
 - [어떤 제약 사항이 존재하나요?](https://developers.flex.team/reference/faq-limitation.md): 현 시점에서 flex 연동을 사용하는 데 있어 유념해야 할 제약 사항에 대해 소개드립니다.
 - [RefreshToken이 만료되었어요 ](https://developers.flex.team/reference/refreshtoken이-만료되었어요.md)
 - [입사예정자의 조직을 조회하고싶어요](https://developers.flex.team/reference/입사예정자의-조직을-조회하고싶어요.md)
